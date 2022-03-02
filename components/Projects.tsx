@@ -84,11 +84,10 @@ export default function Projects() {
                   opacity='0.9'
                   textTransform={'uppercase'}
                   fontWeight={'bold'}
-                  _hover={{ border: '2px solid teal' }}
                   overflow={'hidden'}
                   bgImage={'polygon-scatter-haikei.svg'}
                   bgPosition={'top'}
-                  bgSize={'250px'}
+                  bgSize={'300px'}
                   boxShadow={'xl'}
                   transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
                 >
@@ -129,7 +128,7 @@ export default function Projects() {
             {clients.contentManager.map((client) => (
               <MotionBox
                 drag='x'
-                dragConstraints={{ left: -20, right: 20 }}
+                dragConstraints={{ left: -10, right: 10 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0.2 }}
@@ -142,11 +141,10 @@ export default function Projects() {
                   opacity='0.9'
                   textTransform={'uppercase'}
                   fontWeight={'bold'}
-                  _hover={{ border: '2px solid orange' }}
                   overflow={'hidden'}
                   bgImage={'polygon-scatter-haikei.svg'}
-                  bgPosition={'top'}
-                  bgSize={'250px'}
+                  bgPosition={'bottom'}
+                  bgSize={'300px'}
                   boxShadow={'xl'}
                   transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
                 >
