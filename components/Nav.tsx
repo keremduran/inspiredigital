@@ -43,9 +43,10 @@ export default function Nav() {
   return (
     <>
       <Box
-        bgGradient='linear(to-b, orange.400, orange.300, orange.200)'
+        bgGradient='linear(to-b, orange.400, orange.300, orange.100)'
         bgSize={'100vw'}
         p={4}
+        pb={6}
       >
         <Flex h={10} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
@@ -90,7 +91,6 @@ export default function Nav() {
             </Menu>
           </Flex>
         </Flex>
-
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>

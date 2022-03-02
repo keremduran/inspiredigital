@@ -1,17 +1,13 @@
 import {
   Box,
   Button,
-  Center,
   Container,
-  Flex,
   Heading,
-  Link,
   SimpleGrid,
   VStack,
 } from '@chakra-ui/react';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaBluetoothB } from 'react-icons/fa';
 const MotionBox = motion(Box);
 export default function Projects() {
   const clients = {
@@ -80,6 +76,7 @@ export default function Projects() {
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
+                key={client.name}
               >
                 <Button
                   size='md'
@@ -137,6 +134,7 @@ export default function Projects() {
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0.2 }}
                 whileInView={{ opacity: 1 }}
+                key={client.name}
               >
                 <Button
                   size='md'
