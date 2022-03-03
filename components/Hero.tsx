@@ -32,11 +32,11 @@ export default function Hero() {
           overflow={''}
         >
           <Text as={'span'} color={'teal.400'}>
-            Modern Icerik{' '}
+            Kaliteli İçerik{' '}
           </Text>
           <br />
           <Text as={'span'} color={'orange.400'}>
-            Modern Tasarim
+            Modern Tasarım
           </Text>
         </Heading>
         <Text
@@ -45,10 +45,10 @@ export default function Hero() {
           fontWeight={700}
           maxW={'3xl'}
         >
-          Inspire Digital ile icerik ve website servisine tek bir kaynaktan
-          ulasarak yorulmaniza artik gerek kalmadi. Son teknoloji araclarla
-          gelistirdigimiz urunlerimiz ve icerik servisimiz sayesinde bastan sona
-          efor sarfetmeden kisa surede websitenize sahip olmaniz mumkun.
+          Inspire Digital ile hem web tasarımı hem de içerik hizmetine tek
+          kaynaktan ulaşabilirsiniz. Son teknoloji araçlarla geliştirdiğimiz
+          ürünlerimiz ve uzman ekiplerle oluşturduğumuz içerikler sayesinde
+          hayalinizdeki gibi bir web sitesine kolayca sahip olmak mümkün!
         </Text>
         <Stack
           spacing={6}
@@ -61,6 +61,7 @@ export default function Hero() {
             textColor={'whiteAlpha.900'}
             bg={'teal.400'}
             _hover={{ bg: 'teal.500' }}
+            textTransform={'capitalize'}
             px={6}
           >
             Projelerimiz
@@ -72,7 +73,7 @@ export default function Hero() {
             bg={'orange.400'}
             _hover={{ bg: 'orange.500' }}
           >
-            Bize Ulasin
+            Bize Ulaşın
           </Button>
         </Stack>
         <Flex w={'full'}>

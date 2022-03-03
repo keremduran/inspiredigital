@@ -9,6 +9,7 @@ import {
 import React from 'react';
 import { motion } from 'framer-motion';
 const MotionBox = motion(Box);
+
 export default function Projects() {
   const clients = {
     contentManager: [
@@ -21,12 +22,24 @@ export default function Projects() {
       { link: 'https://www.hairneva.com/', name: 'Hairneva' },
       { link: 'http://www.cagatayruhi.com/', name: 'OP. DR. ÇAĞATAY RUHİ' },
     ],
-    developer: [],
+    developer: [
+      {
+        link: 'https://real-estate-roan-nine.vercel.app/',
+        name: 'Inspire Emlak',
+      },
+      {
+        link: 'https://doktorwebsite-demo-next.vercel.app/',
+        name: 'Demo Doktor Sitesi',
+      },
+      {
+        link: 'https://real-estate-roan-nine.vercel.app/',
+        name: 'Inspire Real Estate',
+      },
+    ],
   };
 
   return (
     <Container className='projects' minW={'100vw'} p={0} m={0}>
-      {/* <WaveDivider /> */}
       <Heading
         as='h2'
         p='2'
@@ -38,7 +51,7 @@ export default function Projects() {
         textAlign={'center'}
         textTransform={'uppercase'}
       >
-        Projelerimiz
+        PROJELERİMİZ
       </Heading>
       <SimpleGrid minChildWidth='300px' gap={6}>
         <Box
@@ -66,7 +79,7 @@ export default function Projects() {
               size='lg'
               fontSize={{ base: 'xl', sm: '2xl', md: '3xl' }}
             >
-              ICERIK
+              İÇERİK
             </Heading>
             {clients.contentManager.map((client) => (
               <MotionBox
@@ -77,9 +90,9 @@ export default function Projects() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 key={client.name}
+                viewport={{ once: true }}
               >
                 <Button
-                  size='md'
                   width='100%'
                   opacity='0.9'
                   textTransform={'uppercase'}
@@ -134,9 +147,9 @@ export default function Projects() {
                 initial={{ opacity: 0.2 }}
                 whileInView={{ opacity: 1 }}
                 key={client.name}
+                viewport={{ once: true }}
               >
                 <Button
-                  size='md'
                   width='100%'
                   opacity='0.9'
                   textTransform={'uppercase'}
