@@ -4,10 +4,7 @@ import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import styles from '../styles/Home.module.css';
 import Projects from '../components/Projects';
-//import Contact from '../components/Contact';
-import dynamic from 'next/dynamic';
-
-const Contact = dynamic(() => import('../components/Contact'));
+import Contact from '../components/Contact';
 
 const Home: NextPage = () => {
   return (

@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
@@ -73,16 +72,13 @@ export default function Nav() {
                 rounded={'full'}
                 variant={'link'}
                 cursor={'pointer'}
-                minW={0}
-              >
-                <Avatar
-                  size={'sm'}
-                  height={'2rem'}
-                  width={'2rem'}
-                  src={'sun-icon.svg'}
-                  background={'transparent'}
-                />
-              </MenuButton>
+                minW={10}
+                minH={10}
+                bgImage={'sun-icon.svg'}
+                bgSize={'100%'}
+                bgPosition={'center'}
+                aria-label='Opens Menu'
+              />
               <MenuList>
                 <MenuItem>Link 1</MenuItem>
                 <MenuItem>Link 2</MenuItem>

@@ -59,10 +59,11 @@ export default function Hero() {
             rounded={'full'}
             colorScheme={'teal'}
             textColor={'whiteAlpha.900'}
-            bg={'teal.400'}
-            _hover={{ bg: 'teal.500' }}
+            bg={'teal.500'}
+            _hover={{ bg: 'teal.600' }}
             textTransform={'capitalize'}
             px={6}
+            boxShadow={'xl'}
           >
             Projelerimiz
           </Button>
@@ -70,8 +71,9 @@ export default function Hero() {
             rounded={'full'}
             px={6}
             colorScheme={'orange'}
-            bg={'orange.400'}
-            _hover={{ bg: 'orange.500' }}
+            bg={'orange.500'}
+            _hover={{ bg: 'orange.600' }}
+            boxShadow={'xl'}
           >
             Bize Ulaşın
           </Button>

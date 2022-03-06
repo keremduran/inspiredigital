@@ -190,11 +190,9 @@ export default function ContactFormWithSocialButtons() {
 
                   <Button
                     colorScheme='blue'
-                    bg='teal.400'
+                    bg='teal.500'
                     color='white'
-                    _hover={{
-                      bg: 'teal.500',
-                    }}
+                    _hover={{ bg: 'teal.600' }}
                     isFullWidth
                   >
                     Mesaj Gonder
