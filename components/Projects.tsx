@@ -39,7 +39,7 @@ export default function Projects() {
   };
 
   return (
-    <Container className='projects' minW={'100vw'} p={0} m={0}>
+    <Container id='projects' className='projects' minW={'100vw'} p={0} m={0}>
       <Heading
         as='h2'
         p='2'

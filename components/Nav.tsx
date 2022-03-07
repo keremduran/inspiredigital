@@ -16,9 +16,12 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-const Links = ['Dashboard', 'Projects', 'Team'];
+const Links = [
+  { name: 'Projeler', href: '#projects' },
+  { name: 'İletişim', href: '#contact' },
+];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = (link: any) => (
   <Link
     px={2}
     py={1}
@@ -30,9 +33,9 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('orange.300', 'orange.700'),
     }}
-    href={'#'}
+    href={link.href}
   >
-    {children}
+    {link.name}
   </Link>
 );
 
@@ -58,7 +61,7 @@ export default function Nav() {
           />
           <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
             {Links.map((link) => (
-              <NavLink key={link}>{link}</NavLink>
+              <NavLink {...link} key={link.name} />
             ))}
           </HStack>
 
@@ -79,11 +82,10 @@ export default function Nav() {
                 bgPosition={'center'}
                 aria-label='Opens Menu'
               />
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
+              <MenuList bg='orange.200'>
+                <MenuItem _hover={{ bg: 'orange.300' }}>Github</MenuItem>
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <MenuItem _hover={{ bg: 'orange.300' }}>Linkedin</MenuItem>
               </MenuList>
             </Menu>
           </Flex>
@@ -92,7 +94,7 @@ export default function Nav() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink {...link} key={link.name} />
               ))}
             </Stack>
           </Box>
