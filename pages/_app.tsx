@@ -5,6 +5,10 @@ import { extendTheme } from '@chakra-ui/react';
 import ColorModeSwitch from '../components/ColorModeSwtich';
 
 const theme = extendTheme({
+  fonts: {
+    heading: 'Open Sans, sans-serif',
+    body: 'Roboto, sans-serif',
+  },
   styles: {
     global: {
       // styles for the `body`
@@ -17,10 +21,16 @@ const theme = extendTheme({
       a: {
         //color: 'teal.500',
         _hover: {
-          textDecoration: 'underline',
+          textDecoration: 'none',
+        },
+        _click: {
+          border: 'none',
         },
       },
     },
+  },
+  components: {
+    Link: {},
   },
 });
 
