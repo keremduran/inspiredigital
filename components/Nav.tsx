@@ -16,6 +16,7 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 const Links = [
   { name: 'Projeler', href: '#projects' },
   { name: 'İletişim', href: '#contact' },
@@ -59,7 +60,12 @@ export default function Nav() {
             bg={'orange.200'}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+          <HStack
+            as={'nav'}
+            spacing={4}
+            fontWeight={400}
+            display={{ base: 'none', md: 'flex' }}
+          >
             {Links.map((link) => (
               <NavLink {...link} key={link.name} />
             ))}
@@ -82,10 +88,38 @@ export default function Nav() {
                 bgPosition={'center'}
                 aria-label='Opens Menu'
               />
-              <MenuList bg='orange.200'>
-                <MenuItem _hover={{ bg: 'orange.300' }}>Github</MenuItem>
+              <MenuList bg='orange.200' maxW='20'>
+                <Link
+                  href='https://www.linkedin.com/in/kerem-duran/'
+                  isExternal
+                >
+                  <MenuItem _hover={{ bg: 'orange.300' }}>
+                    <IconButton
+                      aria-label='linkedin'
+                      variant='ghost'
+                      size='sm'
+                      mr='2'
+                      icon={<BsLinkedin size='28px' />}
+                    />
+                    Linkedin
+                  </MenuItem>
+                </Link>
                 <MenuDivider />
-                <MenuItem _hover={{ bg: 'orange.300' }}>Linkedin</MenuItem>
+                <Link
+                  href='https://github.com/keremduran/inspiredigital'
+                  isExternal
+                >
+                  <MenuItem _hover={{ bg: 'orange.300' }}>
+                    <IconButton
+                      aria-label='github'
+                      variant='ghost'
+                      size='sm'
+                      mr='2'
+                      icon={<BsGithub size='28px' />}
+                    />
+                    Github
+                  </MenuItem>
+                </Link>
               </MenuList>
             </Menu>
           </Flex>

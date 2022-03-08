@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Heading,
+  Link,
   SimpleGrid,
   VStack,
 } from '@chakra-ui/react';
@@ -30,10 +31,6 @@ export default function Projects() {
       {
         link: 'https://doktorwebsite-demo-next.vercel.app/',
         name: 'Demo Doktor Sitesi',
-      },
-      {
-        link: 'https://real-estate-roan-nine.vercel.app/',
-        name: 'Inspire Real Estate',
       },
     ],
   };
@@ -92,20 +89,28 @@ export default function Projects() {
                 key={client.name}
                 viewport={{ once: true }}
               >
-                <Button
-                  width='100%'
-                  opacity='0.9'
-                  textTransform={'uppercase'}
-                  fontWeight={'bold'}
-                  overflow={'hidden'}
-                  bgImage={'polygon-scatter-haikei.svg'}
-                  bgPosition={'top'}
-                  bgSize={'300px'}
-                  boxShadow={'xl'}
-                  transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                <Link
+                  isExternal
+                  href={client.link}
+                  _hover={{ textDecoration: 'none' }}
                 >
-                  {client.name}
-                </Button>
+                  <Button
+                    width='100%'
+                    opacity='0.9'
+                    textTransform={'uppercase'}
+                    fontWeight={'bold'}
+                    overflow={'hidden'}
+                    bgImage={'polygon-scatter-haikei.svg'}
+                    bgPosition={'top'}
+                    bgColor={'blue.200'}
+                    bgSize={'300px'}
+                    boxShadow={'xl'}
+                    transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                    _hover={{ bg: 'blue.100' }}
+                  >
+                    {client.name}
+                  </Button>
+                </Link>
               </MotionBox>
             ))}
           </VStack>
@@ -138,31 +143,39 @@ export default function Projects() {
             >
               YAZILIM
             </Heading>
-            {clients.contentManager.map((client) => (
+            {clients.developer.map((client) => (
               <MotionBox
                 drag='x'
                 dragConstraints={{ left: -10, right: 10 }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1, bg: 'transparent' }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0.2 }}
                 whileInView={{ opacity: 1 }}
                 key={client.name}
                 viewport={{ once: true }}
               >
-                <Button
-                  width='100%'
-                  opacity='0.9'
-                  textTransform={'uppercase'}
-                  fontWeight={'bold'}
-                  overflow={'hidden'}
-                  bgImage={'polygon-scatter-haikei.svg'}
-                  bgPosition={'bottom'}
-                  bgSize={'300px'}
-                  boxShadow={'xl'}
-                  transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                <Link
+                  isExternal
+                  href={client.link}
+                  _hover={{ textDecoration: 'none' }}
                 >
-                  {client.name}
-                </Button>
+                  <Button
+                    width='100%'
+                    opacity='0.9'
+                    textTransform={'uppercase'}
+                    fontWeight={'bold'}
+                    overflow={'hidden'}
+                    bgImage={'polygon-scatter-haikei.svg'}
+                    bgPosition={'bottom'}
+                    bgSize={'300px'}
+                    boxShadow={'xl'}
+                    transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
+                    _hover={{ bg: 'blue.100' }}
+                    bg={'blue.200'}
+                  >
+                    {client.name}
+                  </Button>
+                </Link>
               </MotionBox>
             ))}
           </VStack>

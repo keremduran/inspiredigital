@@ -5,6 +5,7 @@ import {
   Stack,
   Text,
   Button,
+  Link,
 } from '@chakra-ui/react';
 import { HeroIllustration } from './HeroIllustration';
 
@@ -55,28 +56,32 @@ export default function Hero() {
           direction={'row'}
           fontSize={{ sm: '10px', md: '12px', lg: '15px' }}
         >
-          <Button
-            rounded={'full'}
-            colorScheme={'teal'}
-            textColor={'whiteAlpha.900'}
-            bg={'teal.500'}
-            _hover={{ bg: 'teal.600' }}
-            textTransform={'capitalize'}
-            px={6}
-            boxShadow={'xl'}
-          >
-            Projelerimiz
-          </Button>
-          <Button
-            rounded={'full'}
-            px={6}
-            colorScheme={'orange'}
-            bg={'orange.500'}
-            _hover={{ bg: 'orange.600' }}
-            boxShadow={'xl'}
-          >
-            Bize Ulaşın
-          </Button>
+          <Link href='#projects' _hover={{ textDecoration: 'none' }}>
+            <Button
+              rounded={'full'}
+              colorScheme={'teal'}
+              textColor={'whiteAlpha.900'}
+              bg={'teal.500'}
+              _hover={{ bg: 'teal.600' }}
+              textTransform={'capitalize'}
+              px={6}
+              boxShadow={'xl'}
+            >
+              Projelerimiz
+            </Button>
+          </Link>
+          <Link href='#contact' _hover={{ textDecoration: 'none' }}>
+            <Button
+              rounded={'full'}
+              px={6}
+              colorScheme={'orange'}
+              bg={'orange.500'}
+              _hover={{ bg: 'orange.600' }}
+              boxShadow={'xl'}
+            >
+              Bize Ulaşın
+            </Button>
+          </Link>
         </Stack>
         <Flex w={'full'}>
           <HeroIllustration
