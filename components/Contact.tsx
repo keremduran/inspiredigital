@@ -10,16 +10,25 @@ import {
   InputGroup,
   InputLeftElement,
   Link,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Stack,
   Textarea,
   Tooltip,
   useClipboard,
   useColorModeValue,
+  useDisclosure,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
 import { MdEmail, MdOutlineEmail } from 'react-icons/md';
+import { useForm } from 'react-hook-form';
 
 const confetti = {
   light: {
@@ -38,7 +47,22 @@ const CONFETTI_DARK = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2
 
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard('keremduran@live.com');
+  const {
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm();
+  const [message, setMessage] = useState('');
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
+  function onSubmit(values: any) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        setMessage('Mesajiniz Gonderildi');
+        onOpen();
+        resolve(null);
+      }, 1000);
+    });
+  }
   return (
     <Flex
       align='center'
@@ -49,107 +73,104 @@ export default function ContactFormWithSocialButtons() {
       }}
       id='contact'
     >
-      <Box
-        borderRadius='lg'
-        m={{ base: 5, md: 12, lg: 7 }}
-        p={{ base: 5, lg: 12 }}
-      >
-        <Box>
-          <VStack spacing={{ base: 2, md: 4, lg: 8 }}>
-            <Heading
-              fontSize={{
-                base: '4xl',
-                md: '5xl',
-              }}
-              color={'orange.500'}
-              textTransform={'uppercase'}
-            >
-              Iletisim
-            </Heading>
+      <Box borderRadius='lg' m={{ base: 5, md: 8, lg: 2 }} p={{ base: 5 }}>
+        <VStack spacing={{ base: 2, md: 4, lg: 8 }}>
+          <Heading
+            fontSize={{
+              base: '4xl',
+              md: '5xl',
+            }}
+            color={'orange.500'}
+            textTransform={'uppercase'}
+          >
+            Iletisim
+          </Heading>
 
+          <Stack
+            spacing={{ base: 4, md: 8, lg: 20 }}
+            direction={{ base: 'column', md: 'row' }}
+          >
             <Stack
-              spacing={{ base: 4, md: 8, lg: 20 }}
-              direction={{ base: 'column', md: 'row' }}
+              align='center'
+              justify='space-around'
+              direction={{ base: 'row', md: 'column' }}
             >
-              <Stack
-                align='center'
-                justify='space-around'
-                direction={{ base: 'row', md: 'column' }}
+              <Tooltip
+                label={hasCopied ? 'Email Kopyalandi!' : 'Emaili kopyala'}
+                closeOnClick={false}
+                hasArrow
               >
-                <Tooltip
-                  label={hasCopied ? 'Email Kopyalandi!' : 'Emaili kopyala'}
-                  closeOnClick={false}
-                  hasArrow
-                >
-                  <IconButton
-                    aria-label='email'
-                    variant='ghost'
-                    size='lg'
-                    fontSize='3xl'
-                    icon={<MdEmail />}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    onClick={onCopy}
-                    isRound
-                  />
-                </Tooltip>
+                <IconButton
+                  aria-label='email'
+                  variant='ghost'
+                  size='lg'
+                  fontSize='3xl'
+                  icon={<MdEmail />}
+                  _hover={{
+                    bg: 'blue.500',
+                    color: useColorModeValue('white', 'gray.700'),
+                  }}
+                  onClick={onCopy}
+                  isRound
+                />
+              </Tooltip>
 
-                <Link
-                  href='https://github.com/keremduran/inspiredigital'
-                  isExternal
-                >
-                  <IconButton
-                    aria-label='github'
-                    variant='ghost'
-                    size='lg'
-                    fontSize='3xl'
-                    icon={<BsGithub />}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
-
-                <Link href='#'>
-                  <IconButton
-                    aria-label='twitter'
-                    variant='ghost'
-                    size='lg'
-                    icon={<BsTwitter size='28px' />}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
-
-                <Link href='#'>
-                  <IconButton
-                    aria-label='linkedin'
-                    variant='ghost'
-                    size='lg'
-                    icon={<BsLinkedin size='28px' />}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
-              </Stack>
-
-              <Box
-                bg={useColorModeValue('white', 'gray.700')}
-                borderRadius='lg'
-                p={8}
-                color={useColorModeValue('gray.700', 'whiteAlpha.900')}
-                shadow='base'
+              <Link
+                href='https://github.com/keremduran/inspiredigital'
+                isExternal
               >
+                <IconButton
+                  aria-label='github'
+                  variant='ghost'
+                  size='lg'
+                  fontSize='3xl'
+                  icon={<BsGithub />}
+                  _hover={{
+                    bg: 'blue.500',
+                    color: useColorModeValue('white', 'gray.700'),
+                  }}
+                  isRound
+                />
+              </Link>
+
+              <Link href='#'>
+                <IconButton
+                  aria-label='twitter'
+                  variant='ghost'
+                  size='lg'
+                  icon={<BsTwitter size='28px' />}
+                  _hover={{
+                    bg: 'blue.500',
+                    color: useColorModeValue('white', 'gray.700'),
+                  }}
+                  isRound
+                />
+              </Link>
+
+              <Link href='https://www.linkedin.com/in/kerem-duran/' isExternal>
+                <IconButton
+                  aria-label='linkedin'
+                  variant='ghost'
+                  size='lg'
+                  icon={<BsLinkedin size='28px' />}
+                  _hover={{
+                    bg: 'blue.500',
+                    color: useColorModeValue('white', 'gray.700'),
+                  }}
+                  isRound
+                />
+              </Link>
+            </Stack>
+
+            <Box
+              bg={useColorModeValue('white', 'gray.700')}
+              borderRadius='lg'
+              p={8}
+              color={useColorModeValue('gray.700', 'whiteAlpha.900')}
+              shadow='base'
+              width={{ base: '90vw', md: '80vw', lg: '55rem' }}
+            >
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <VStack spacing={5}>
                   <FormControl isRequired>
                     <FormLabel>Isim</FormLabel>
@@ -194,14 +215,30 @@ export default function ContactFormWithSocialButtons() {
                     color='white'
                     _hover={{ bg: 'teal.600' }}
                     isFullWidth
+                    type='submit'
+                    isLoading={isSubmitting}
                   >
                     Mesaj Gonder
                   </Button>
                 </VStack>
-              </Box>
-            </Stack>
-          </VStack>
-        </Box>
+              </form>
+            </Box>
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Sistem</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>{message}</ModalBody>
+
+                <ModalFooter>
+                  <Button colorScheme='blue' mr={3} onClick={onClose}>
+                    Kapat
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
+          </Stack>
+        </VStack>
       </Box>
     </Flex>
   );
