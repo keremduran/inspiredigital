@@ -67,7 +67,6 @@ export default function ContactFormWithSocialButtons() {
       },
       body: JSON.stringify(data),
     }).then((res) => {
-      console.log('Response received');
       if (res.status === 200) {
         setModalMessage('Mesajınız başarıyla gönderildi.');
         onOpen();
