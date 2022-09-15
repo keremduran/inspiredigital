@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function contact(req: NextApiRequest, res: NextApiResponse) {
-  console.log('req.body', req.body);
   let nodemailer = require('nodemailer');
   require('dotenv').config();
   const PASSWORD = process.env.password;
@@ -23,11 +22,6 @@ export default function contact(req: NextApiRequest, res: NextApiResponse) {
     html: `<div>${req.body.emailContent}</div><p>Sent from:
     ${req.body.email}</p>`,
   };
-
-  // transporter.sendMail(mailData, function (err: any, info: any) {
-  //   if (err) console.log(err);
-  //   else console.log(info);
-  // });
 
   res.status(200).json({ name: 'Success.' });
 }
