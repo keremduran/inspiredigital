@@ -7,6 +7,7 @@ body {
   background: #feebc8;
   background: black;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -22,24 +23,4 @@ a {
   font-family: 'Brush Script MT', cursive;
   letter-spacing: 0.2rem;
   font-weight: bold;
-}
-
-.projects-divider {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.projects-divider svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 106px;
-}
-
-.projects-divider .shape-fill {
-  fill: #f6ad55;
 }
