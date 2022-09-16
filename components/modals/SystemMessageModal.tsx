@@ -24,12 +24,7 @@ function SystemMessageModal(props: Props) {
       <ModalContent>
         <ModalHeader>Sistem</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>{props.message}</ModalBody>
-        <ModalFooter>
-          <Button colorScheme='blue' mr={3} onClick={props.onClose}>
-            Kapat
-          </Button>
-        </ModalFooter>
+        <ModalBody paddingBottom={'3rem'}>{props.message}</ModalBody>
       </ModalContent>
     </Modal>
   );

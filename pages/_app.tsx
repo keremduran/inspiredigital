@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
-import ColorModeSwitch from '../components/ColorModeSwtich';
+import ColorModeSwitch from '../components/buttons/ColorModeSwitch';
 import theme from '../util/theme.js';
 import { LanguageContext } from '../context/LanguageContext';
 import { useState } from 'react';

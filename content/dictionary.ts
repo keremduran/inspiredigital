@@ -1,15 +1,11 @@
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
 
-export interface iEntry {
-  [key: string]: any;
+export interface Dictionary {
+  [key: string]: string | Array<Object> | Object;
 }
 
-export interface iDictionary {
-  [key: string]: iEntry;
-}
-
-export const dictionary: iDictionary = {
+export const dictionary: Dictionary = {
   tr: {
     global: {
       test: {
@@ -23,11 +19,19 @@ export const dictionary: iDictionary = {
       ],
     },
     hero: {
-      h1Top: 'Kaliteli İçerik',
-      h1Bottom: 'Modern Tasarım',
+      heading: {
+        top: 'Kaliteli İçerik',
+        bottom: 'Modern Tasarım',
+      },
       description: `Inspire Digital ile hem web tasarımı hem de içerik hizmetine tek kaynaktan ulaşabilirsiniz. Son teknoloji araçlarla geliştirdiğimiz ürünlerimiz ve uzman ekiplerle oluşturduğumuz içerikler sayesinde hayalinizdeki gibi bir web sitesine kolayca sahip olmak mümkün!`,
-      projectsButton: 'Projelerimiz',
-      contactButton: 'Bize Ulaşın',
+      projectsButton: {
+        label: 'Projelerimiz',
+        href: '#projects',
+      },
+      contactButton: {
+        label: 'Bize Ulaşın',
+        href: '#contact',
+      },
     },
     projects: {
       heading: 'Projelerimiz',
@@ -69,8 +73,10 @@ export const dictionary: iDictionary = {
     },
     contact: {
       heading: `İLETİŞİM`,
-      emailCopied: 'Email Kopyalandi!',
-      copyEmail: 'Emaili kopyala',
+      socialMedia: {
+        emailCopied: 'Email Kopyalandi!',
+        copyEmail: 'Emaili kopyala',
+      },
       form: {
         name: {
           label: 'Isim',
@@ -86,6 +92,10 @@ export const dictionary: iDictionary = {
         },
         submit: {
           label: 'Mesaj Gonder',
+        },
+        modal: {
+          header: 'Sistem',
+          messageOnSuccess: 'Mesajınız başarıyla gönderildi!',
         },
       },
     },
@@ -106,11 +116,19 @@ export const dictionary: iDictionary = {
       ],
     },
     hero: {
-      h1Top: 'Quality Content',
-      h1Bottom: 'Modern Design',
+      heading: {
+        top: 'Quality Content',
+        bottom: 'Modern Design',
+      },
       description: `With Inspire Digital, you can access both web design and content services in one place. Thanks to our products developed with state-of-the-art tools and the content created with expert teams, it is possible to have a website like your dreams easily!`,
-      projectsButton: 'Our Projects',
-      contactButton: 'Contact Us',
+      projectsButton: {
+        label: 'Our Projects',
+        href: '#projects',
+      },
+      contactButton: {
+        label: 'Contact Us',
+        href: '#contact',
+      },
     },
     projects: {
       heading: 'Our Projects',
@@ -152,8 +170,10 @@ export const dictionary: iDictionary = {
     },
     contact: {
       heading: `Contact Us`,
-      emailCopied: 'Email copied!',
-      copyEmail: 'Copy Email',
+      socialMedia: {
+        emailCopied: 'Email copied!',
+        copyEmail: 'Copy Email',
+      },
       form: {
         name: {
           label: 'Name',
@@ -169,6 +189,10 @@ export const dictionary: iDictionary = {
         },
         submit: {
           label: 'Send Message',
+        },
+        modal: {
+          header: 'System',
+          messageOnSuccess: 'Your message has been sent successfully!',
         },
       },
     },
