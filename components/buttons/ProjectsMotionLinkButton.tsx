@@ -5,12 +5,11 @@ import { motion } from 'framer-motion';
 const MotionBox = motion(Box);
 
 type Props = {
-  key: string;
   label: string;
   href: string;
 };
 
-const ProjectsMotionLinkButton = ({ key, label, href }: Props) => {
+const ProjectsMotionLinkButton = ({ label, href }: Props) => {
   return (
     <MotionBox
       drag='x'
