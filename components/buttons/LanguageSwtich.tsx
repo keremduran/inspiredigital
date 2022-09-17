@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { Box, Button, IconButton, createIcon } from '@chakra-ui/react';
+import React, { useContext } from 'react';
+import { IconButton } from '@chakra-ui/react';
 import { LanguageContext } from '../../context/LanguageContext';
 import TurkishIcon from '../graphics/TurkishIcon';
 import EnglishIcon from '../graphics/EnglishIcon';

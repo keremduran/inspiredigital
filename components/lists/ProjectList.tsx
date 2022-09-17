@@ -1,8 +1,3 @@
-import { Button } from '@chakra-ui/react';
-import Link from 'next/link';
-import React from 'react';
-import H3 from '../headings/H3';
-import ProjectListWrapper from '../wrappers/ProjectsGroupWrapper';
 import ProjectsMotionLinkButton from '../buttons/ProjectsMotionLinkButton';
 
 type Props = {
