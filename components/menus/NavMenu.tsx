@@ -20,9 +20,9 @@ const NavMenu = ({ links, variant }: Props) => {
   );
 
   const mobileNavMenu = (
-    <Box p={4}>
-      <Stack display={{ md: 'none' }} fontWeight={900} as={'nav'} spacing={4}>
-        {links.map((link: any) => (
+    <Box p={2}>
+      <Stack display={{ md: 'none' }} fontWeight={600} as={'nav'} spacing={2}>
+        {links.map((link: { href: string; name: string }) => (
           <NavLink {...link} key={link.name} />
         ))}
       </Stack>

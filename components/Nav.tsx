@@ -5,6 +5,8 @@ import NavWrapper from './wrappers/NavWrapper';
 import HamburgerButton from './buttons/HamburgerButton';
 import NavLogo from './logos/NavLogo';
 import NavMenu from './menus/NavMenu';
+import NavButtonsWrapper from './wrappers/NavButtonsWrapper';
+import ColorModeSwitch from './buttons/ColorModeSwitch';
 
 export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -14,15 +16,16 @@ export default function Nav() {
 
   return (
     <NavWrapper>
-      <Flex h={10} alignItems={'center'} justifyContent={'space-between'}>
+      <NavButtonsWrapper>
         <HamburgerButton disclosure={disclosure} />
         <NavMenu variant='desktop' links={links} />
         <Flex alignItems={'center'}>
           <NavLogo />
           <LanguageSwitch />
+          <ColorModeSwitch />
         </Flex>
-      </Flex>
-      {isOpen ? <NavMenu links={links} /> : <></>}
+      </NavButtonsWrapper>
+      {isOpen && <NavMenu links={links} />}
     </NavWrapper>
   );
 }

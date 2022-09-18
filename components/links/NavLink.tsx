@@ -1,14 +1,11 @@
 import { useColorModeValue, Link } from '@chakra-ui/react';
 import React from 'react';
 
-type Props = {};
-
-const NavLink = (link: any) => (
+const NavLink = (link: { name: string; href: string }) => (
   <Link
     px={2}
     py={1}
     rounded={'md'}
-    fontWeight={500}
     fontSize={18}
     color={'whiteAlpha.900'}
     _hover={{
