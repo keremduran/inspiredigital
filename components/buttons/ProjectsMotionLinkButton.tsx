@@ -1,6 +1,7 @@
 import { Button, Box, Link } from '@chakra-ui/react';
 import React from 'react';
 import { motion } from 'framer-motion';
+import useTheme from '../../hooks/useTheme';
 
 const MotionBox = motion(Box);
 
@@ -10,6 +11,7 @@ type Props = {
 };
 
 const ProjectsMotionLinkButton = ({ label, href }: Props) => {
+  const theme = useTheme();
   return (
     <MotionBox
       drag='x'
@@ -28,12 +30,12 @@ const ProjectsMotionLinkButton = ({ label, href }: Props) => {
           textTransform={'uppercase'}
           fontWeight={'bold'}
           overflow={'hidden'}
-          bgImage={'polygon-scatter-haikei.svg'}
+          bgImage={`${theme.mode}-polygon-scatter-haikei.svg`}
           bgPosition={'bottom'}
           bgSize={'300px'}
           boxShadow={'xl'}
           transition='all 0.2s cubic-bezier(.08,.52,.52,1)'
-          _hover={{ bg: 'blue.100' }}
+          _hover={{ bg: `teal.${theme.useColorModeValue(50, 600)}` }}
           bg={'blue.200'}
         >
           {label}

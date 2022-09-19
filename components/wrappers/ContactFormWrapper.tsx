@@ -10,7 +10,7 @@ const ContactFormWrapper = ({ children }: Wrapper) => {
       p={8}
       color={useColorModeValue('gray.700', 'whiteAlpha.900')}
       shadow='base'
-      width={{ base: '90vw', md: '80vw', lg: '55rem' }}
+      width={{ base: '90vw', md: '80vw', xl: '50rem' }}
     >
       {children}
     </Box>

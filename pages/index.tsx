@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import BodyWrapper from '../components/wrappers/BodyWrapper';
 
 const Home: NextPage = () => {
   return (
@@ -14,11 +15,13 @@ const Home: NextPage = () => {
         <meta name='description' content='Inspire digital company landing' />
         <link rel='icon' href='/sun-icon.svg' />
       </Head>
-      <Nav />
-      <Hero />
-      <Projects />
-      <Contact />
-      <Footer />
+      <BodyWrapper>
+        <Nav />
+        <Hero />
+        <Projects />
+        <Contact />
+        <Footer />
+      </BodyWrapper>
     </div>
   );
 };

@@ -1,18 +1,17 @@
 import { extendTheme } from '@chakra-ui/react';
-
+import useTheme from '../hooks/useTheme';
 const theme = extendTheme({
+  useSystemColorMode: false,
+  initialColorMode: 'system',
   fonts: {
     heading: 'Open Sans, sans-serif',
     body: 'Roboto, sans-serif',
   },
   styles: {
     global: {
+      primary: {},
       // styles for the `body`
-      body: {
-        bg: 'orange.100',
-        bgImage: 'stacked-waves-haikei.svg',
-        bgSize: '100vw',
-      },
+      body: {},
       // styles for the `a`
       a: {
         //color: 'teal.500',

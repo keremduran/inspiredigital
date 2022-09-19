@@ -1,12 +1,14 @@
 import { Container, Stack } from '@chakra-ui/react';
 import React from 'react';
+import useTheme from '../../hooks/useTheme';
 import { Wrapper } from '../../types';
 
 const HeroWrapper = ({ children }: Wrapper) => {
+  const theme = useTheme();
   return (
     <Container
       maxW={'full'}
-      backgroundImage={'layered-peaks-haikei.svg'}
+      backgroundImage={`${theme.mode}-layered-peaks-haikei.svg`}
       backgroundPosition={'center'}
       backgroundRepeat={'no-repeat'}
     >

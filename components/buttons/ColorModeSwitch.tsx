@@ -9,7 +9,9 @@ const ColorModeSwitch = () => {
     <IconButton
       aria-label='Toggle color mode'
       onClick={toggleColorMode}
-      icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
+      colorScheme={colorMode === 'light' ? 'orange' : 'teal'}
+      size='xs'
+      icon={colorMode === 'light' ? <FaSun /> : <FaMoon />}
     />
   );
 };

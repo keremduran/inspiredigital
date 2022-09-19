@@ -10,7 +10,7 @@ const NavLink = (link: { name: string; href: string }) => (
     color={'whiteAlpha.900'}
     _hover={{
       textDecoration: 'none',
-      bg: useColorModeValue('orange.300', 'orange.700'),
+      bg: useColorModeValue('orange.300', 'teal.700'),
     }}
     href={link.href}
   >

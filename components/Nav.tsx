@@ -1,7 +1,7 @@
 import { Flex, useDisclosure } from '@chakra-ui/react';
 import LanguageSwitch from './buttons/LanguageSwtich';
 import useContent from '../hooks/useContent';
-import NavWrapper from './wrappers/NavWrapper';
+import NavBgGradientWrapper from './wrappers/NavBgGradientWrapper';
 import HamburgerButton from './buttons/HamburgerButton';
 import NavLogo from './logos/NavLogo';
 import NavMenu from './menus/NavMenu';
@@ -15,7 +15,7 @@ export default function Nav() {
   const links = content.links;
 
   return (
-    <NavWrapper>
+    <NavBgGradientWrapper>
       <NavButtonsWrapper>
         <HamburgerButton disclosure={disclosure} />
         <NavMenu variant='desktop' links={links} />
@@ -26,6 +26,6 @@ export default function Nav() {
         </Flex>
       </NavButtonsWrapper>
       {isOpen && <NavMenu links={links} />}
-    </NavWrapper>
+    </NavBgGradientWrapper>
   );
 }

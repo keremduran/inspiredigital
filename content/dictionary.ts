@@ -1,8 +1,11 @@
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
+export interface Entry {
+  [key: string]: any;
+}
 
 export interface Dictionary {
-  [key: string]: string | Array<Object> | Object;
+  [key: string]: Entry;
 }
 
 export const dictionary: Dictionary = {

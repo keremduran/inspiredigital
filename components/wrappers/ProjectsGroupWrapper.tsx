@@ -1,5 +1,6 @@
 import { Box, VStack } from '@chakra-ui/react';
 import React from 'react';
+import useTheme from '../../hooks/useTheme';
 import { Wrapper } from '../../types';
 
 type Props = Wrapper & {
@@ -7,8 +8,12 @@ type Props = Wrapper & {
 };
 
 const ProjectsArticleWrapper = ({ variant, children }: Props) => {
+  const theme = useTheme();
   const isDev = variant === 'developer';
-  const textColor = `${isDev ? 'orange' : 'teal'}.600`;
+  const textColor = `${isDev ? theme.primary : theme.secondary}.${
+    theme.textShade
+  }`;
+
   const alignItems = isDev ? 'start' : 'end';
 
   return (
@@ -24,12 +29,7 @@ const ProjectsArticleWrapper = ({ variant, children }: Props) => {
       }}
       fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}
     >
-      <VStack
-        p={3}
-        spacing={3}
-        alignItems={alignItems}
-        textColor={`${textColor}.500`}
-      >
+      <VStack p={3} spacing={3} alignItems={alignItems} textColor={textColor}>
         {children}
       </VStack>
     </Box>
