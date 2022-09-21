@@ -1,7 +1,11 @@
 import { useColorModeValue, Link } from '@chakra-ui/react';
 import React from 'react';
 
-const NavLink = (link: { name: string; href: string }) => (
+const NavLink = (link: {
+  name?: string;
+  icon?: React.ReactNode;
+  href: string;
+}) => (
   <Link
     px={2}
     py={1}
@@ -14,7 +18,7 @@ const NavLink = (link: { name: string; href: string }) => (
     }}
     href={link.href}
   >
-    {link.name}
+    {link.name || link.icon}
   </Link>
 );
 export default NavLink;
