@@ -81,19 +81,26 @@ export const dictionary: Dictionary = {
         copyEmail: 'Emaili kopyala',
       },
       form: {
-        name: {
-          label: 'Isim',
-          placeholder: 'Isminiz',
+        fields: {
+          name: {
+            type: 'text',
+            label: 'Isim',
+            placeholder: 'Isminiz',
+          },
+          email: {
+            type: 'email',
+            label: 'Email',
+            placeholder: 'Emailiniz',
+          },
+          message: {
+            type: 'text',
+            label: 'Mesaj',
+            placeholder: 'Mesajiniz',
+          },
         },
-        email: {
-          label: 'Email',
-          placeholder: 'Emailiniz',
-        },
-        message: {
-          label: 'Mesaj',
-          placeholder: 'Mesajiniz',
-        },
+
         submit: {
+          type: 'submit',
           label: 'Mesaj Gonder',
         },
         modal: {
@@ -178,17 +185,22 @@ export const dictionary: Dictionary = {
         copyEmail: 'Copy Email',
       },
       form: {
-        name: {
-          label: 'Name',
-          placeholder: 'Your name',
-        },
-        email: {
-          label: 'Email',
-          placeholder: 'Your email',
-        },
-        message: {
-          label: 'Message',
-          placeholder: 'Your Message',
+        fields: {
+          name: {
+            type: 'text',
+            label: 'Name',
+            placeholder: 'Your name',
+          },
+          email: {
+            type: 'email',
+            label: 'Email',
+            placeholder: 'Your email',
+          },
+          message: {
+            type: 'text',
+            label: 'Message',
+            placeholder: 'Your Message',
+          },
         },
         submit: {
           label: 'Send Message',

@@ -1,20 +1,12 @@
-import {
-  VStack,
-  FormControl,
-  FormLabel,
-  InputGroup,
-  InputLeftElement,
-  Input,
-  Textarea,
-  Button,
-  useDisclosure,
-} from '@chakra-ui/react';
+import { VStack, useDisclosure } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { BsPerson } from 'react-icons/bs';
-import { MdOutlineEmail } from 'react-icons/md';
 import SystemMessageModal from '../modals/SystemMessageModal';
 import { useForm } from 'react-hook-form';
 import ContactFormWrapper from '../wrappers/ContactFormWrapper';
+import ContactFormInput from './input/ContactFormInput';
+import ContactFormTextField from './input/ContactFormTextField';
+import ContactFormSubmitButton from '../buttons/ContactFormSubmitButton';
+import { sendEmail } from '../../proxies/sendEmail';
 
 type Props = {
   form: any;
@@ -32,24 +24,29 @@ function ContactForm({ form }: Props) {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  function onSubmit() {
-    let data = {
+  const openSuccessModal = () => {
+    setModalMessage(form.modal.messageOnSuccess);
+    onOpen();
+  };
+
+  interface EmailData {
+    name: string;
+    email: string;
+    emailContent: string;
+  }
+
+  const getEmailData = (): EmailData => {
+    return {
       name,
       email,
       emailContent: message,
     };
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.status === 200) {
-        setModalMessage(form.modal.messageOnSuccess);
-        onOpen();
-      }
+  };
+
+  function onSubmit() {
+    let data: EmailData = getEmailData();
+    sendEmail(data).then((isSuccess) => {
+      isSuccess && openSuccessModal();
     });
   }
   return (
@@ -62,62 +59,26 @@ function ContactForm({ form }: Props) {
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <VStack spacing={5}>
-          <FormControl isRequired>
-            <FormLabel>{form.name.label}</FormLabel>
-
-            <InputGroup>
-              <InputLeftElement>
-                <BsPerson />
-              </InputLeftElement>
-              <Input
-                onChange={(e: any) => setName(e.target.value)}
-                type='text'
-                name='name'
-                placeholder={form.name.placeholder}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <FormControl isRequired>
-            <FormLabel>{form.email.label}</FormLabel>
-
-            <InputGroup>
-              <InputLeftElement>
-                <MdOutlineEmail />
-              </InputLeftElement>
-              <Input
-                type='email'
-                name='email'
-                placeholder={form.email.placeholder}
-                onChange={(e: any) => setEmail(e.target.value)}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <FormControl isRequired>
-            <FormLabel>{form.message.label}</FormLabel>
-
-            <Textarea
-              name='message'
-              placeholder={form.message.placeholder}
-              rows={6}
-              value={message}
-              resize='none'
-              onChange={(e: any) => setMessage(e.target.value)}
-            />
-          </FormControl>
-
-          <Button
-            colorScheme='blue'
-            bg='teal.500'
-            color='white'
-            _hover={{ bg: 'teal.600' }}
-            isFullWidth
-            type='submit'
+          <ContactFormInput
+            name={'name'}
+            field={form.fields.name}
+            setter={setName}
+          />
+          <ContactFormInput
+            name={'email'}
+            field={form.fields.email}
+            setter={setEmail}
+          />
+          <ContactFormTextField
+            name={'message'}
+            field={form.fields.message}
+            setter={setMessage}
+            value={message}
+          />
+          <ContactFormSubmitButton
+            label={form.submit.label}
             isLoading={isSubmitting}
-          >
-            {form.submit.label}
-          </Button>
+          />
         </VStack>
       </form>
     </ContactFormWrapper>
